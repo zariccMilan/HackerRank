@@ -1,0 +1,611 @@
+
+2.
+
+Task
+In this challenge, you must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line. To make the problem a little easier,
+a portion of the code is provided for you in the editor below.
+
+Input Format
+
+There are 3 lines of input, and each line contains a single integer
+
+
+
+
+
+
+
+
+====================================================================================================================================================================
+
+3. 
+
+Task
+Given an integer,n , perform the following conditional actions:
+
+If n is odd, print Weird
+If n is even and in the inclusive range of 2 to 5, print Not Weird
+If n is even and in the inclusive range of 6 to 20, print Weird
+If n is even and greater than 20, print Not Weird
+Complete the stub code provided in your editor to print whether or not n is weird.
+
+Input Format
+
+A single line containing a positive integer, n.
+
+Constraints
+
+Output Format
+
+Print Weird if the number is weird; otherwise, print Not Weird.
+
+
+
+Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        
+        if( n % 2 != 0){
+            System.out.println("Weird");
+        } else if (n%2 == 0 && n >= 2 && n <= 5) {
+            System.out.println("Not Weird");
+        } else if (n%2 == 0 && n >= 6 && n <= 20){
+            System.out.println("Weird");
+        } else {
+            System.out.println("Not Weird");
+        }
+
+====================================================================================================================================================================
+
+4. 
+
+Input Format
+
+There are three lines of input:
+
+The first line contains an integer.
+The second line contains a double.
+The third line contains a String.
+Output Format
+
+There are three lines of output:
+
+On the first line, print String: followed by the unaltered String read from stdin.
+On the second line, print Double: followed by the unaltered double read from stdin.
+On the third line, print Int: followed by the unaltered integer read from stdin.
+To make the problem easier, a portion of the code is already provided in the editor.
+
+Note: If you use the nextLine() method immediately following the nextInt() method, recall that nextInt() reads integer tokens; because of this, 
+the last newline character for that line of integer input is still queued in the input buffer and the next nextLine() will be reading 
+the remainder of the integer line (which is empty).
+
+
+
+
+Scanner s = new Scanner(System.in);
+		System.out.println("Ukucaj int, double i String");
+		
+		
+		int i = s.nextInt();
+		s.nextLine();
+		double d = s.nextDouble();
+		s.nextLine();
+		String str = s.nextLine();
+		s.close();
+		
+		System.out.println("String: " + str + "\n" + "Double: " + d + "\n" + "Int: " + i);
+		
+		// Kada user kuca u konzolu double, mora sa zarezom ne sa tackom jer ce baciti missmatch
+
+====================================================================================================================================================================
+
+5. 
+
+Input Format
+
+Every line of input will contain a String followed by an integer.
+Each String will have a maximum of 10 alphabetic characters, and each integer will be in the inclusive range from 0 to 999.
+
+Output Format
+
+In each line of output there should be two columns:
+The first column contains the String and is left justified using exactly 15 characters.
+The second column contains the integer, expressed in exactly 3 digits; if the original input has less than three digits, 
+you must pad your output's leading digits with zeroes.
+
+
+
+
+Scanner sc=new Scanner(System.in);
+        System.out.println("================================");
+        for(int i=0;i<3;i++){
+            String s1=sc.next();
+            int x=sc.nextInt();
+            //Complete this line
+            System.out.format("%-15s%03d\n",s1,x);
+        }
+        System.out.println("================================");
+        
+//        First s1 which is formatted using %-15s. The % means that what follows is an argument that will be formatted. 
+//        Then follows a - resulting in left alignment. 15 fills the string up to a length of 15 characters (adding spaces at the end). 
+//        Finally the s means, that you are formatting a string.
+//
+//        Second x which is formatted using %03d. Here the 0 is the fill character, meaning that, if necessary, zeros are added.
+//        The 3 is again the width, meaning the fill character 0 is added as many times as necessary to make it 3 digits long (this time at the beginning).
+//        Finally d means, that a integer is formatted.
+
+====================================================================================================================================================================
+
+6.
+
+Given an integer, N, print its first 10 multiples. Each multiple N x i (where 1<= i <= 10) should be printed on a new line in the form: N x i = result.
+
+Input Format
+
+A single integer, N.
+
+Constraints
+2 <= N <= 20
+
+Output Format
+
+Print 10 lines of output; each line i (where 1 <= i <= 10) contains the result of N x i in the form:
+N x i = result.
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+		
+		for(int i = 1; i <=10; i++) {
+			System.out.println(num + " x " + i + " = " + num * i);
+		}
+		
+====================================================================================================================================================================
+
+7.
+
+We use the integers a, b, and n to create the following series:
+
+(a + 2^0 x b), (a + 2^0 x b + 2^1 x b),....(a + 2^0 x b + 2^1 x b + ... + 2^n-1 x b)
+
+You are given q queries in the form of a, b, and n. For each query, print the series corresponding to the given a, b, 
+and n values as a single line of n space-separated integers.
+
+Input Format
+
+The first line contains an integer, q, denoting the number of queries.
+Each line i of the q subsequent lines contains three space-separated integers describing the respective ai, bi, and ni values for that query.
+
+Constraints
+
+0 <= q <= 500
+0 <= a,b <= 50
+1 <= n <= 15
+
+
+Output Format
+
+For each query, print the corresponding series on a new line. Each series must be printed in order as a single line of n space-separated integers.
+
+
+		
+
+Scanner scanner = new Scanner(System.in);
+		int t = scanner.nextInt();
+		for(int i = 0; i<t; i++) {
+			int a = scanner.nextInt();
+			int b = scanner.nextInt();
+			int n = scanner.nextInt();
+			int sum = a;
+			
+			for(int j= 0; j < n; j++) {
+				sum += b * Math.pow(2, j);
+				System.out.print(sum + " ");
+				if(j==n-1) {
+					System.out.print(" ");
+				} else {
+					System.out.println("");
+				}
+			}
+			System.out.println();
+		}
+
+====================================================================================================================================================================
+
+8.
+
+Java has 8 primitive data types; char, boolean, byte, short, int, long, float, and double. For this exercise, we'll work with the primitives used to hold integer values (byte, short, int, and long):
+
+A byte is an 8-bit signed integer.
+A short is a 16-bit signed integer.
+An int is a 32-bit signed integer.
+A long is a 64-bit signed integer.
+Given an input integer, you must determine which primitive data types are capable of properly storing that input.
+
+To get you started, a portion of the solution is provided for you in the editor.
+
+Reference: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+
+Input Format
+
+The first line contains an integer, T, denoting the number of test cases.
+Each test case, T, is comprised of a single line with an integer, n, which can be arbitrarily large or small.
+
+Output Format
+
+For each input variable n and appropriate primitive dataType, you must determine if the given primitives are capable of storing it. If yes, then print:
+
+n can be fitted in:
+* dataType
+
+If there is more than one appropriate data type, print each one on its own line and order them by size (i.e.:byte < short < int < long).
+
+If the number cannot be stored in one of the four aforementioned primitives, print the line:
+
+n can't be fitted anywhere.
+
+Sample Input
+
+5
+-150
+150000
+1500000000
+213333333333333333333333333333333333
+-100000000000000
+
+
+
+Sample Output
+
+-150 can be fitted in:
+* short
+* int
+* long
+150000 can be fitted in:
+* int
+* long
+1500000000 can be fitted in:
+* int
+* long
+213333333333333333333333333333333333 can't be fitted anywhere.
+-100000000000000 can be fitted in:
+* long
+
+
+Explanation
+
+-150 can be stored in a short, an int, or a long.
+
+213333333333333333333333333333333333 is very large and is outside of the allowable range of values for the primitive data types discussed in this problem.
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+		int t = scanner.nextInt();
+
+		for (int i = 0; i < t; i++) {
+
+			try {
+
+				long num = scanner.nextLong();
+				if (num >= -128 && num <= 127) {
+					System.out.println(num + " can be fitted in: " + "\n" + "* byte");
+					System.out.println("* short");
+					System.out.println("* int");
+					System.out.println("* long");
+				} else if (num >= -32768 && num <= 32767) {
+					System.out.println(num + " can be fitted in: " + "\n" + "* short");
+					System.out.println("* int");
+					System.out.println("* long");
+				} else if (num >= -2147483648 && num <= 2147483647) {
+					System.out.println(num + " can be fitted in: " + "\n" + "* int");
+					System.out.println("* long");
+				} else if (num >= -9223372036854775808L && num <= 9223372036854775807L) {
+					System.out.println(num + " can be fitted in: " + "\n" + "* long");
+				} else {
+					System.out.println("Can't be fitted anywhere");
+				}
+
+			} catch (Exception e) {
+				System.out.println(scanner.next() + " can't be fitted anywhere.");
+
+			}
+
+		}
+		scanner.close();
+		
+====================================================================================================================================================================
+
+9.
+
+"In computing, End Of File (commonly abbreviated EOF) is a condition in a computer operating system where no more data can be read from a data source." — (Wikipedia: End-of-file)
+
+The challenge here is to read n lines of input until you reach EOF, then number and print all n lines of content.
+
+Hint: Java's Scanner.hasNext() method is helpful for this problem.
+
+Input Format
+
+Read some unknown n lines of input from stdin(System.in) until you reach EOF; each line of input contains a non-empty String.
+
+Output Format
+
+For each line, print the line number, followed by a single space, and then the line content received as input.
+
+Sample Input
+
+Hello world
+I am a file
+Read me until end-of-file.
+Sample Output
+
+1 Hello world
+2 I am a file
+3 Read me until end-of-file.
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+		
+		
+		
+		for(int i = 1; scanner.hasNext(); i++) {
+			System.out.println(i + " " + scanner.nextLine());
+		}
+
+		scanner.close();
+		
+====================================================================================================================================================================
+
+10.
+
+Static initialization blocks are executed when the class is loaded, and you can initialize static variables in those blocks.
+
+It's time to test your knowledge of Static initialization blocks. You can read about it here.
+
+You are given a class Solution with a main method. Complete the given code so that it outputs the area of a parallelogram with breadth B and height H. You should read the variables from the standard input.
+
+If B <= 0 or H <= 0 , the output should be "java.lang.Exception: Breadth and height must be positive" without quotes.
+
+Input Format
+
+There are two lines of input. The first line contains H: the breadth of the parallelogram. The next line contains H: the height of the parallelogram.
+
+Constraints
+
+-100 <= B <= 100
+-100 <= H <= 100
+
+Output Format
+
+If both values are greater than zero, then the main method must output the area of the parallelogram. Otherwise, print "java.lang.Exception: Breadth and height must be positive" without quotes.
+
+Sample input 1
+
+1
+3
+Sample output 1
+
+3
+Sample input 2
+
+-1
+2
+Sample output 2
+
+java.lang.Exception: Breadth and height must be positive
+
+
+
+
+// Moje resenje
+Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Parallelogram area");
+		
+		
+		int sum = 0;
+		
+		try {
+			
+			for(int i = 1; i<2; i++) {
+				int breadth = scanner.nextInt();
+				int height = scanner.nextInt();
+				if(breadth > 0 && height > 0) {
+					sum = breadth * height;
+					System.out.println(sum);
+				} else {
+					System.out.println("java.lang.Exception: Breadth and height must be positive");
+				}
+			}
+				
+				
+		} catch(Exception e) {
+			System.out.println("java.lang.Exception: Breadth and height must be positive");
+		}
+		scanner.close();
+
+
+
+
+Scanner sc = new Scanner(System.in);
+        
+        int B=sc.nextInt();
+        int H=sc.nextInt();
+        try{
+        if(B<=0 ||H<=0){
+            throw new Exception("Breadth and height must be positive");
+        }
+        else
+        System.out.println(B*H);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+====================================================================================================================================================================
+
+11.
+
+You are given an integer n, you have to convert it into a string.
+
+Please complete the partially completed code in the editor. If your code successfully converts n into a string s the code will print "Good job". Otherwise it will print "Wrong answer".
+
+n can range between -100 to 100 inclusive.
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Kucaj und pucaj");
+		
+		int n = scanner.nextInt();
+		
+		if(n>=-100 && n<=100){
+	        String s = Integer.toString(n); 
+	        System.out.println("Good job");
+	    }
+	    else
+	        System.out.println("Wrong answer");
+			
+====================================================================================================================================================================
+
+12.
+
+The Calendar class is an abstract class that provides methods for converting between a specific instant in time and a set of calendar fields such as YEAR, MONTH, DAY_OF_MONTH, HOUR, and so on,
+ and for manipulating the calendar fields, such as getting the date of the next week.
+
+You are given a date. You just need to write the method, getDay, which returns the day on that date. To simplify your task, we have provided a portion of the code in the editor.
+
+Example
+month = 8
+day = 14
+year = 2017
+
+
+The method should return MONDAY as the day on that date.
+
+image
+
+Function Description
+
+Complete the findDay function in the editor below.
+
+findDay has the following parameters:
+
+int: month
+int: day
+int: year
+Returns
+
+string: the day of the week in capital letters
+Input Format
+
+A single line of input containing the space separated month, day and year, respectively, in MM, DD, YYYY format.
+
+Constraints
+
+	2000 < year < 3000	
+
+
+
+
+class Result {
+
+    /*
+     * Complete the 'findDay' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER month
+     *  2. INTEGER day
+     *  3. INTEGER year
+     */
+
+    public static String findDay(int month, int day, int year) {
+	
+		Calendar date = Calendar.getInstance();
+        date.set(year, month-1, day);
+        DateFormat f = new SimpleDateFormat("EEEE");
+
+        return f.format(date.getTime()).toUpperCase();
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = Result.findDay(month, day, year);
+
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+====================================================================================================================================================================
+
+13.
+
+Given a double-precision number, payment, denoting an amount of money, use the NumberFormat class' getCurrencyInstance method to convert
+payment into the US, Indian, Chinese, and French currency formats. Then print the formatted values as follows:
+
+US: formattedPayment
+India: formattedPayment
+China: formattedPayment
+France: formattedPayment
+where formattedPayment is payment formatted according to the appropriate Locale's currency.
+
+Note: India does not have a built-in Locale, so you must construct one where the language is en (i.e., English).
+
+Input Format
+
+A single double-precision number denoting payment.
+
+Constraints
+0 <= payment <= 10^9
+Output Format
+
+On the first line, print US: u where u is  formatted for US currency.
+On the second line, print India: i where i is  formatted for Indian currency.
+On the third line, print China: c where c is  formatted for Chinese currency.
+On the fourth line, print France: f, where f is payment formatted for French currency.
+
+Sample Input
+
+12324.134
+Sample Output
+
+US: $12,324.13
+India: Rs.12,324.13
+China: ￥12,324.13
+France: 12 324,13 €
+Explanation
+
+Each line contains the value of payment formatted according to the four countries' respective currencies.
+
+
+
+
+
+
+		
+
