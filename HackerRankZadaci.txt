@@ -605,6 +605,72 @@ Each line contains the value of payment formatted according to the four countrie
 
 
 
+Scanner scanner = new Scanner(System.in);
+		System.out.println("Kucaj");
+		double payment = scanner.nextDouble();
+
+		scanner.close();
+
+		// Write your code here.
+		String us, india, china, france;
+		us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+		india = NumberFormat.getCurrencyInstance(new Locale("EN", "IN")).format(payment);
+		china = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
+		france = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+		System.out.println("US: " + us);
+		System.out.println("India: " + india);
+		System.out.println("China: " + china);
+		System.out.println("France: " + france);
+		
+------> u Javi 15 (sve sam zadatke radio u javi 15 na sajtu) ne moze da se uradi, resenje je za javu 7. Iako u editoru na javi 18 radi...iako editor izbacuje da je zastareo nacin resavanja 
+
+====================================================================================================================================================================
+
+14.
+
+"A string is traditionally a sequence of characters, either as a literal constant or as some kind of variable." — Wikipedia: String (computer science)
+
+This exercise is to test your understanding of Java Strings. A sample String declaration:
+
+String myString = "Hello World!"
+The elements of a String are called characters. The number of characters in a String is called the length, and it can be retrieved with the String.length() method.
+
+Given two strings of lowercase English letters, A and B, perform the following operations:
+
+Sum the lengths of A and B.
+Determine if A is lexicographically larger than B (i.e.: does B come before A in the dictionary?).
+Capitalize the first letter in A and B and print them on a single line, separated by a space.
+Input Format
+
+The first line contains a string A. The second line contains another string B. The strings are comprised of only lowercase English letters.
+
+Output Format
+
+There are three lines of output:
+For the first line, sum the lengths of A and B.
+For the second line, write Yes if A is lexicographically greater than B otherwise print No instead.
+For the third line, capitalize the first letter in both A and B and print them on a single line, separated by a space.
+
+
+
+
+Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Kucaj");
+		
+		String a = sc.next();
+		String b = sc.next();
+		
+		int sum = a.length() + b.length();
+		
+		
+		
+		
+		System.out.println(sum);
+		System.out.println(a.substring(0, 1).toUpperCase() + a.substring(1) + " " + b.substring(0, 1).toUpperCase() + b.substring(1));
+
+
+
 
 
 		
