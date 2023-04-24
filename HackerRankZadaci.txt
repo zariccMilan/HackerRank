@@ -744,7 +744,39 @@ s consists of English alphabetic letters only (i.e., [a-zA-Z]).
 
 
 
-ddd
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Kucaj");
+
+		String str = sc.nextLine();
+		int k = sc.nextInt();
+		getSmallestAndLargest(str, k);
+
+	}
+
+	public static void getSmallestAndLargest(String s, int k) {
+
+		String currStr = s.substring(0, k);
+		String lexMin = currStr;
+		String lexMax = currStr;
+
+		for (int i = k; i < s.length(); i++) {
+			currStr = currStr.substring(1, k) + s.charAt(i);
+			if (lexMax.compareTo(currStr) < 0)
+				lexMax = currStr;
+			if (lexMin.compareTo(currStr) > 0)
+				lexMin = currStr;
+		}
+
+		System.out.println(lexMin);
+		System.out.println(lexMax);
+	}
+
+}
 
 
 
